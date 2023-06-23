@@ -8,7 +8,7 @@ pub fn explain() {
 
     displayable_boredom.pontificate();
 
-    let mut undisplayable_boredom = Boredom::new(vec!["AAA", "AAAAAA", "AAAAAAAAAA"]);
+    let mut undisplayable_boredom = Boredom::new(vec![100, 1000, 10000]);
     
     //A vec doesn't impl the Display trait, so no worky!
     // undisplayable_boredom.pontificate(); 
@@ -20,7 +20,7 @@ pub struct Boredom<T> {
     how_much_i_hate_the_rust_book: u128,
 }
 
-//No matter what type you are, you can use new
+//No matter what type you are, you can use the new and id_rather_be methods
 impl<T> Boredom<T> {
     fn new(boredom: T) -> Self {
         Boredom { 
@@ -47,7 +47,7 @@ impl<T: Display> Boredom<T> {
     }
 }
 
-//You can also conditionally implement traits when they implement a trait (watch)
+//You can also conditionally implement traits when they implement a trait (this is called blanket implementation)
 pub trait Killable {
     fn kill(&mut self) {}
 }
